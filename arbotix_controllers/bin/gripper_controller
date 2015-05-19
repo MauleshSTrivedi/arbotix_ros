@@ -56,7 +56,7 @@ class GripperModel:
         """ Take an input command of width (m) to open gripper and publish angle to Servo. """   
         # check limits
         if command.position > self.max_opening or command.position < self.min_opening:                 
-            rospy.logerr("Command (%.5f) exceeds max limit ( %.5f) or min limit ( %.5f)", command.position, self.max_opening, self.max_opening)
+            rospy.logerr("Command (%.5f) exceeds max limit ( %.5f) or min limit ( %.5f)", command.position, self.max_opening, self.min_opening)
             return False       
         # compute angle
         angle = self.widthToAngle(command.position)
